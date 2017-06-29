@@ -1,0 +1,38 @@
+- hosts: target_hosts
+
+  tasks:
+
+    - name: Doing some echo command
+      shell: echo "Some sample shell commands"
+      register: command_result
+
+    - debug:
+        var: command_result.stdout_lines
+
+    - name: Get pwd
+      shell: pwd
+      register: command_result
+
+    - debug:
+        var: command_result.stdout_lines
+
+    - name: List temp dir
+      shell: ls -1 /tmp
+      register: command_result
+
+    - debug:
+        var: command_result.stdout_lines
+
+    - name: List processes
+      shell: ps ax | head -100
+      register: command_result
+
+    - debug:
+        var: command_result.stdout_lines
+
+    - name: Cat cpuinfo
+      shell: cat /proc/cpuinfo
+      register: command_result
+
+    - debug:
+        var: command_result.stdout_lines

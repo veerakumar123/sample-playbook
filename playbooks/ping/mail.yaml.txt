@@ -1,0 +1,10 @@
+- hosts: target_hosts
+
+  tasks:
+
+    - name: Check target host
+      ping:
+
+    - name: Display distribution info
+      debug:
+        var: ansible_distribution
